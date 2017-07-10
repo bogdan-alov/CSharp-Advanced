@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. Jedi Meditation", "1. Jedi Meditation\1. Jedi Meditation.csproj", "{3428CC79-54A1-4D55-89D3-C2BA5C45DC2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. Jedi Galaxy", "2. Jedi Galaxy\2. Jedi Galaxy.csproj", "{2A1DE51D-EC2D-4BDC-B419-962AB2A9FABA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. Jedi-Code-X", "3. Jedi-Code-X\3. Jedi-Code-X.csproj", "{B8B27D3B-8802-4A37-81A4-570C0674A84B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3428CC79-54A1-4D55-89D3-C2BA5C45DC2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3428CC79-54A1-4D55-89D3-C2BA5C45DC2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3428CC79-54A1-4D55-89D3-C2BA5C45DC2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3428CC79-54A1-4D55-89D3-C2BA5C45DC2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A1DE51D-EC2D-4BDC-B419-962AB2A9FABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A1DE51D-EC2D-4BDC-B419-962AB2A9FABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A1DE51D-EC2D-4BDC-B419-962AB2A9FABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A1DE51D-EC2D-4BDC-B419-962AB2A9FABA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8B27D3B-8802-4A37-81A4-570C0674A84B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8B27D3B-8802-4A37-81A4-570C0674A84B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8B27D3B-8802-4A37-81A4-570C0674A84B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8B27D3B-8802-4A37-81A4-570C0674A84B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
