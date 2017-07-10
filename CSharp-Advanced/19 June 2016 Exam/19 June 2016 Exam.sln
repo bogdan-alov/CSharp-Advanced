@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. Cubic Artillery", "1. Cubic Artillery\1. Cubic Artillery.csproj", "{9824AAEF-DE70-45D9-AE5F-985CBFEE5EF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.CubicMessages", "CubicMessages\3.CubicMessages.csproj", "{BE14C918-C36F-4C4D-847C-98C9324BE0A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4. Cubic Assault", "4. Cubic Assault\4. Cubic Assault.csproj", "{632F3E07-B355-4DFF-A42C-6B5EC6F61B02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9824AAEF-DE70-45D9-AE5F-985CBFEE5EF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9824AAEF-DE70-45D9-AE5F-985CBFEE5EF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9824AAEF-DE70-45D9-AE5F-985CBFEE5EF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9824AAEF-DE70-45D9-AE5F-985CBFEE5EF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE14C918-C36F-4C4D-847C-98C9324BE0A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE14C918-C36F-4C4D-847C-98C9324BE0A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE14C918-C36F-4C4D-847C-98C9324BE0A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE14C918-C36F-4C4D-847C-98C9324BE0A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{632F3E07-B355-4DFF-A42C-6B5EC6F61B02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{632F3E07-B355-4DFF-A42C-6B5EC6F61B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{632F3E07-B355-4DFF-A42C-6B5EC6F61B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{632F3E07-B355-4DFF-A42C-6B5EC6F61B02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
