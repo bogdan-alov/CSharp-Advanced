@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace _3.Jedi_Code_X
 {
 	class Program
 	{
-		static void Main(string[] args)
+		public static void Main(string[] args)
 		{
-			var pattern = "pattern1([a-zA-Z]{p1lenght})[^a-zA-Z]|pattern2([a-zA-Z]{p2lenght})[^a-zA-Z]";
-
+			var jediNamesPattern = "pattern1([a-zA-Z]{p1lenght})[^a-zA-Z]";
+			var jediMessagesPattern = "pattern2([a-zA-Z0-9]{p2lenght})[^a-zA-Z0-9]";
 			var n = int.Parse(Console.ReadLine());
 			var text = "";
 			for (int i = 0; i < n; i++)
@@ -25,44 +22,42 @@ namespace _3.Jedi_Code_X
 
 			var pattern1 = Console.ReadLine();
 			var pattern2 = Console.ReadLine();
-			pattern = pattern.Replace("pattern1", pattern1);
-			pattern = pattern.Replace("p1lenght", pattern1.Length.ToString());
+			jediNamesPattern = jediNamesPattern.Replace("pattern1", Regex.Escape(pattern1));
+			jediNamesPattern = jediNamesPattern.Replace("p1lenght", pattern1.Length.ToString());
 
-			pattern = pattern.Replace("pattern2", pattern2);
-			pattern = pattern.Replace("p2lenght", pattern2.Length.ToString());
+			jediMessagesPattern = jediMessagesPattern.Replace("pattern2", Regex.Escape(pattern2));
+			jediMessagesPattern = jediMessagesPattern.Replace("p2lenght", pattern2.Length.ToString());
 
-			var matches = Regex.Matches(text, pattern);
-			var matchesG1 = new List<string>();
-			var matchesG2 = new List<string>();
+			var namesMatches = Regex.Matches(text, jediNamesPattern);
+			var messagesMatches = Regex.Matches(text, jediMessagesPattern);
+
+			var jediNames = Arrange(namesMatches);
+			var messages = Arrange(messagesMatches);
+
+			var numbers = new Queue<int>(Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse)
+				.ToArray());
+
+			foreach (var jediName in jediNames)
+			{
+				var number = numbers.Dequeue() - 1;
+
+				if (number < messages.Count && number >= 0)
+				{
+					Console.WriteLine($"{jediName} - {messages[number]}");
+				}
+			}
+		}
+
+		public static List<string> Arrange(MatchCollection matches)
+		{
+			var list = new List<string>();
+
 			foreach (Match match in matches)
 			{
-				if (match.Groups[1].Value != "")
-				{
-					matchesG1.Add(match.Groups[1].Value);
-				}
-				if (match.Groups[2].Value != "")
-				{
-					matchesG2.Add(match.Groups[2].Value);
-				}
+				list.Add(match.Groups[1].Value);
 			}
 
-			var numbers = Console.ReadLine().Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse)
-				.ToArray();
-			var counter = 0;
-			foreach (var match in matchesG1)
-			{
-				if (counter >= numbers.Length)
-				{
-					counter = numbers.Length - 1;
-				}
-				if (counter < numbers.Length - 1)
-				{
-					counter++;
-				}
-				Console.WriteLine($"{match} - {matchesG2[numbers[counter]]}");
-				
-			}
-			Console.WriteLine();
+			return list;
 		}
 	}
 }

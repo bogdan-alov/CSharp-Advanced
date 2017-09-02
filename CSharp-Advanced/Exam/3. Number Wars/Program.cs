@@ -16,14 +16,13 @@ namespace _3.Number_Wars
 
 			var firstPlayer = new Queue<string>(hand1);
 			var secondPlayer = new Queue<string>(hand2);
-			var firstPlayerNUM = new List<int>();
-			var secondPlayerNUM = new List<int>();
+
 
 			var sum1 = 0;
 			var sum2 = 0;
 			var war = new List<string>();
 			var turns = 0;
-			while (true)
+			while (turns < 1000000 && firstPlayer.Count > 0 && secondPlayer.Count > 0)
 			{
 				if (firstPlayer.Count == 0 || secondPlayer.Count == 0)
 				{

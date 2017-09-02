@@ -6,6 +6,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml.XPath;
 
 namespace _1.Regeh
 {
@@ -18,49 +19,41 @@ namespace _1.Regeh
 			var pattern = "[[][^ []+?<(\\d+)REGEH(\\d+)>[^ ]+?]";
 
 			var matches = Regex.Matches(input, pattern);
-			var indexes = new Stack<long>();
-			var counter = 0;
+
+			var result = string.Empty;
+			var index = 0;
 			foreach (Match match in matches)
 			{
 
-				if (counter == 0)
+				var index1 = int.Parse(match.Groups[1].Value);
+				var index2 = int.Parse(match.Groups[2].Value);
+				index += index1;
+
+				if (index >= input.Length)
 				{
-					var index1 = long.Parse(match.Groups[1].Value);
-					indexes.Push(index1);
-					var index2 = long.Parse(match.Groups[2].Value) + indexes.Peek();
-					indexes.Push(index2);
+					index = (index % input.Length) + 1;
+					result += input[index];
 				}
 				else
 				{
-					var index1 = long.Parse(match.Groups[1].Value) + indexes.Peek();
-					indexes.Push(index1);
-					var index2 = long.Parse(match.Groups[2].Value) + indexes.Peek();
-					indexes.Push(index2);
+					result += input[index];
 				}
-				counter++;
-			}
-			var array = indexes.Reverse().ToArray();
-			var sb = new StringBuilder();
 
-			foreach (var number in array)
-			{
-				if (number > input.Length)
+				index += index2;
+
+				if (index >= input.Length)
 				{
-					var index = number - input.Length + 1;
-					sb.Append(input[(int)index]);
-				}
-				else if (number == input.Length)
-				{
-					var index = 0;
-					sb.Append(input[index]);
+					index = index % input.Length + 1;
+					result += input[index];
 				}
 				else
 				{
-					sb.Append(input[(int)number]);
+					result += input[index];
 				}
 
 			}
-			Console.WriteLine(sb);
+	
+			Console.WriteLine(result);
 		}
 	}
 }

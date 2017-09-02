@@ -18,122 +18,61 @@ namespace _2.Jedi_Galaxy
 			cols = dimensions[1];
 
 			var matrix = new int[rows][];
-			var count = 0;
+			var counter = 0;
 			for (int row = 0; row < rows; row++)
 			{
 				matrix[row] = new int[cols];
 				for (int col = 0; col < matrix[row].Length; col++)
 				{
-					matrix[row][col] = count;
-					count++;
+					matrix[row][col] = counter;
+					counter++;
 				}
 			}
-			var ivoNumbers = new List<int>();
-			while (true)
+
+			var sum = 0;
+			var input = string.Empty;
+
+			while ((input = Console.ReadLine()) != "Let the Force be with you")
 			{
-				var input = Console.ReadLine();
-				if (input == "Let the Force be with you")
-				{
-					break;
-				}
-				var ivo = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
-				
-				
-				
-				
-				var evilForce = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
-				var ivoRow = ivo[0];
-				var ivoCol = ivo[1];
+				var jediArgs = input.Split().Select(int.Parse).ToArray();
+				var evilArgs = Console.ReadLine().Split().Select(int.Parse).ToArray();
 
-				var evilForceRow = evilForce[0];
-				var evilForceCol = evilForce[1];
+				var jediRow = jediArgs[0];
+				var jediCol = jediArgs[1];
+				var evilRow = evilArgs[0];
+				var evilCol = evilArgs[1];
 
-				if (evilForceRow < 0 )
+				while (evilRow >= 0 && evilCol >= 0)
 				{
-					evilForceRow = 0;
-				}
-				else if (evilForceRow >= matrix.Length)
-				{
-					evilForceRow = matrix.Length - 1;
-				}
-				else if (evilForceRow == matrix.Length - 1)
-				{
-					evilForceRow = matrix.Length - 2;
-				}
-
-				if (evilForceCol < 0)
-				{
-					evilForceCol = 0;
-				}
-				else if (evilForceCol >= matrix[rows -1 ].Length)
-				{
-					evilForceCol = matrix[rows - 1].Length - 1;
-				}
-				else if (evilForceCol == matrix[rows - 1].Length - 1)
-				{
-					evilForceCol = matrix[rows - 1].Length - 2;
-				}
-
-
-
-				if (ivoRow < 0)
-				{
-					ivoRow = 0;
-				}
-				else if (ivoRow >= matrix.Length)
-				{
-					ivoRow = matrix.Length - 1;
-				}
-				else if (ivoRow == matrix.Length - 1)
-				{
-					ivoRow = matrix.Length - 2;
-				}
-
-				if (ivoCol < 0)
-				{
-					ivoCol = 0;
-				}
-				else if (ivoCol >= matrix[rows- 1].Length)
-				{
-					ivoCol = matrix[rows -1].Length - 1;
-				}
-				else if (ivoCol == matrix[rows - 1].Length - 1)
-				{
-					ivoCol = matrix[rows - 1].Length - 2;
-				}
-
-				for (int i = evilForceRow; i >= 0; i--)
-				{
-					if (i == evilForceRow )
+					if (IsMatrix(evilRow, evilCol, matrix))
 					{
-						matrix[i][evilForceCol] = 0;
+						matrix[evilRow][evilCol] = 0;
 					}
-					else
-					{
-						matrix[i][evilForceCol - 1] = 0;
-						evilForceCol = evilForceCol - 1;
-					}	
+					evilRow--;
+					evilCol--;
 				}
 
-				for (int i = ivoRow; i >= 0; i--)
+				while (jediRow >= 0 && jediCol < matrix[0].Length)
 				{
-					if (i == ivoRow)
+					if (IsMatrix(jediRow, jediCol, matrix))
 					{
-						ivoNumbers.Add(matrix[i][ivoCol]);
+						sum += matrix[jediRow][jediCol];
 					}
-					else
-					{
-						ivoCol = ivoCol + 1;
-						ivoNumbers.Add(matrix[i][ivoCol]);
-						
-					}
+					jediRow--;
+					jediCol++;
 				}
 			}
 
+			Console.WriteLine(sum);
+			//foreach (var i in matrix)
+			//{
+			//	Console.WriteLine(string.Join(" ", i));
+			//}
+		}
 
-
-			Console.WriteLine(ivoNumbers.Sum());
-
+		private static bool IsMatrix(int row, int col, int[][] matrix)
+		{
+			return row >= 0 && row < matrix.Length && col >= 0 && col < matrix[0].Length;
 		}
 	}
 }
